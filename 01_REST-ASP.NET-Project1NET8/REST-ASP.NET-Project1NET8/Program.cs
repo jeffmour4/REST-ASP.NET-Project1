@@ -13,6 +13,9 @@ var connection = builder.Configuration["MySqlConnection:MySqlConnectionString"];
 builder.Services.AddDbContext<MySqlContext>(options => options.UseMySql(
     connection, new MySqlServerVersion(new Version(8,0,35))));
 
+// API Versioning
+builder.Services.AddApiVersioning();
+
 // Dependency Injection
 builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
 
